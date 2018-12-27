@@ -7,4 +7,5 @@ export const loadSvgResource = (ir: MdIconRegistry, ds: DomSanitizer) =>{
     ir.addSvgIcon('logo',ds.bypassSecurityTrustResourceUrl(`${imgDir}logo.svg`));
     ir.addSvgIcon('setting',ds.bypassSecurityTrustResourceUrl(`${imgDir}setting.svg`));
     ir.addSvgIcon('coffee',ds.bypassSecurityTrustResourceUrl(`${imgDir}coffee.svg`));
+    ir.addSvgIcon('search',ds.bypassSecurityTrustResourceUrl(`${imgDir}search.svg`));
 }

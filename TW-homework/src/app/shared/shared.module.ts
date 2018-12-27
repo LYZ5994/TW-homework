@@ -2,12 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http'
 import { 
-  MdToolbarModule, 
   MdIconModule, 
   MdButtonModule, 
-  MdCardModule, 
   MdInputModule,
-  MdListModule,
+  MdGridListModule,
   MdTabsModule
 } from '@angular/material';
 
@@ -17,13 +15,15 @@ import {
     HttpModule,
     MdIconModule,
     MdTabsModule,
-    MdInputModule
+    MdInputModule,
+    MdGridListModule
   ],
   exports: [
     CommonModule,
     MdIconModule,
     MdTabsModule,
-    MdInputModule
+    MdInputModule,
+    MdGridListModule
   ],
   declarations: []
 })

@@ -19,7 +19,10 @@
       <li class="tab-title"><span>Physical</span></li>
       <li class="tab-title"><span>Virtual</span></li>
       <li class="tab-search">
-        <input type="text">
+        <md-input-container>
+          <md-icon mdPrefix svgIcon="search"></md-icon>
+          <input type="text" mdInput>
+        </md-input-container>
       </li>
       <li class="tab-icon">
         <md-icon></md-icon>
@@ -28,5 +31,15 @@
     </ul>
   </div>
 
-  <div class="work-list"></div>
+  <div class="work-list">
+    <ng-container *ngFor="let agent of listData">
+      <div>
+          <md-grid-list cols="3" [rowHeight]="50">
+              <md-grid-tile [colspan]="2" [rowspan]="2">
+                <img src="assets/image/os/{{agent.os}}.png" alt="">
+              </md-grid-tile>
+            </md-grid-list>
+      </div>
+    </ng-container>
+  </div>
 </div>
