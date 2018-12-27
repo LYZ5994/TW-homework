@@ -1,0 +1,29 @@
+.menu {
+    float: right;
+    height: 100%;
+    width: 100%;
+    background-color: #2d4054;
+}
+
+.menu-top {
+    padding: 20px 0;
+}
+
+md-icon {
+    align-self: flex-start;
+}
+
+md-list-item {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    padding-left: 30px;
+}
+md-list-item:hover {
+    background-color: #435466;
+    cursor: pointer;
+}
+
+md-list-item span {
+    color: #fff;
+}
