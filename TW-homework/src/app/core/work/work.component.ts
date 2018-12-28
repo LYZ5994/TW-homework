@@ -14,7 +14,7 @@ export class WorkComponent implements OnInit {
   ngOnInit() {
     this.reqAgentsList();
   }
-
+  // 获取列表数据
   listData: any;
   reqAgentsList(){
     this.dataService.reqDataByGet('http://localhost:3000/agents').then(res => {
@@ -23,5 +23,8 @@ export class WorkComponent implements OnInit {
 
     })
   }
+  // 标签切换
+  tabActive: string = 'all';
+  showList: string = 'list';
 
 }

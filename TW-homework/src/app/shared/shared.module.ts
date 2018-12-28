@@ -1,30 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpModule } from '@angular/http'
-import { 
-  MdIconModule, 
-  MdButtonModule, 
-  MdInputModule,
-  MdGridListModule,
-  MdTabsModule
-} from '@angular/material';
+import { HttpModule } from '@angular/http';
+import { PopupComponent } from './popup/popup.component'
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpModule,
-    MdIconModule,
-    MdTabsModule,
-    MdInputModule,
-    MdGridListModule
+    HttpModule
   ],
   exports: [
     CommonModule,
-    MdIconModule,
-    MdTabsModule,
-    MdInputModule,
-    MdGridListModule
+    PopupComponent
   ],
-  declarations: []
+  declarations: [
+    PopupComponent
+  ]
 })
 export class SharedModule { }

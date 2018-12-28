@@ -17,8 +17,8 @@ html, body, app-root, .site {
 
 main {
     flex: 1;
-    background-color: #E1E4E6;
-    display: flex;
+    background-color: #e1e4e6;
+    display: flex !important;
     flex-direction: row;
 }
 
@@ -27,12 +27,34 @@ main {
     justify-content: center;
 }
 
-.header, .footer {
+.header, .footer, {
     border: 1px solid #e8e8e8;
 }
-
 
 .fill-remaining-space {
     flex: 1 1 auto;
 }
+
+ul li{
+    list-style: none;
+}
+
+/** 图标 */
+.fa {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.fa-computer {
+    background-image: url('./assets/image/computer.svg');
+}
+.fa-attention {
+    background-image: url('./assets/image/attention.svg');
+}
+.fa-folder {
+    background-image: url('./assets/image/folder.svg');
+}
+
 

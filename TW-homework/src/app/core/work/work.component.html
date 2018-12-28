@@ -2,43 +2,95 @@
   <div class="work-header">
     <div class="header-item" style="background-color: #FF9A2A;">
       <span class="item-title">Building</span>
-      <md-icon class="item-icon" svgIcon="setting"></md-icon>
-      <span class="item-num">10</span>
+      <img src="assets/image/setting.svg" alt="" class="item-icon">
+      <span class="item-num">3</span>
     </div>
     <div class="header-item" style="background-color: #7FBC39;margin: auto 20px;">
       <span class="item-title">Idle</span>
-      <md-icon class="item-icon" svgIcon="coffee"></md-icon>
+      <img src="assets/image/coffee.svg" alt="" class="item-icon">
       <span class="item-num">5</span>
     </div>
-    <div class="header-item fill-remaining-space" style="background-color: #FFF;"></div>
+    <div class="header-item fill-remaining-space" style="background-color: #FFF;">
+      <ul class="count-num">
+        <li>
+          <span>ALL</span>
+          <span>8</span>
+        </li>
+        <li>
+          <span>PGYSICAL</span>
+          <span>4</span>
+        </li>
+        <li>
+          <span>VIRTUAL</span>
+          <span>4</span>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <div class="tabs-bar">
     <ul>
-      <li class="tab-title"><span>All</span></li>
-      <li class="tab-title"><span>Physical</span></li>
-      <li class="tab-title"><span>Virtual</span></li>
+      <li class="tab-title" [class.active]="tabActive=='all'" (click)="tabActive = 'all'">
+        <span>All</span>
+      </li>
+      <li class="tab-title" [class.active]="tabActive=='physical'" (click)="tabActive = 'physical'">
+        <span>Physical</span>
+      </li>
+      <li class="tab-title" [class.active]="tabActive=='virtual'" (click)="tabActive = 'virtual'">
+        <span>Virtual</span>
+      </li>
       <li class="tab-search">
-        <md-input-container>
-          <md-icon mdPrefix svgIcon="search"></md-icon>
-          <input type="text" mdInput>
-        </md-input-container>
+        <i class="fa fa-search"></i>
+       <input type="text" >
       </li>
       <li class="tab-icon">
-        <md-icon></md-icon>
-        <md-icon></md-icon>
+        <i class="fa fa-th" [class.active]="showList=='th'" (click)="showList = 'th'"></i>
+        <i class="fa fa-th-list" [class.active]="showList=='list'" (click)="showList = 'list'"></i>
       </li>
     </ul>
   </div>
 
   <div class="work-list">
     <ng-container *ngFor="let agent of listData">
-      <div>
-          <md-grid-list cols="3" [rowHeight]="50">
-              <md-grid-tile [colspan]="2" [rowspan]="2">
-                <img src="assets/image/os/{{agent.os}}.png" alt="">
-              </md-grid-tile>
-            </md-grid-list>
+      <div class="agent">
+        <div class="software">
+          <img src="assets/image/os/{{agent.os}}.png" alt="">
+        </div>
+        <div class="software-info">
+          <div class="detail">
+            <ul>
+              <li class="name">
+                <i class="fa fa-computer"></i>
+                <span>{{ agent.name }}</span>
+              </li>
+              <li class="{{ agent.status }} status">
+                <span>{{ agent.status }}</span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <i class="fa fa-attention"></i>
+                <span>{{ agent.ip }}</span>
+              </li>
+              <li>
+                <i class="fa fa-folder-o"></i>
+                <span>{{ agent.location }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="resources">
+            <ul>
+              <li class="add-resource">
+                <i class="fa fa-plus-square"></i>
+                <app-popup></app-popup>
+              </li>
+              <li *ngFor="let item of agent.resources">                
+                <span>{{ item }}</span>
+                <i class="fa fa-trash-o"></i>
+              </li>
+            </ul>
+          </div>
+        </div>        
       </div>
     </ng-container>
   </div>

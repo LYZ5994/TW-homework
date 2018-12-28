@@ -36,6 +36,18 @@
     padding: 10px;    
 }
 
+.count-num {
+    width: 100%;
+}
+.count-num > li {
+    width: 33%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+/** 列表筛选 bar */
 .tabs-bar {
     background-color: #fff;
     height: 50px;
@@ -63,12 +75,16 @@ li.tab-title {
     cursor: pointer;
 }
 
-li.tab-title:hover {
+li.tab-title:hover,
+li.active {
     border-bottom: 3px solid #00B4CF;
     color: #00B4CF;
 }
 
-li.tab-title:hover span {
+li.tab-title:hover span,
+li.active > span,
+li > i.active
+{
     color: #00B4CF;
 }
 
@@ -76,30 +92,134 @@ li.tab-icon {
     float: right;
 }
 
-md-input-container{
-    height: 25px;
-    border: 1px solid #ccc;
-    background-color: #E1E4E6;
+
+.tab-search {
+    padding: 0 10px;
+    cursor: pointer;
+    position: relative;
+} 
+
+.tab-search > i {
+    position: absolute;
+    left: 15px;
+    
 }
 
-.tab-search md-icon {
-    padding: 5px;
+.tab-search > input {
+    height: 25px;
+    border: 1px solid #e8e8e8;
+    background-color: #E1E4E6;
+    padding-left: 25px;
+    outline: none;
+}
+
+li.tab-icon {
+    float: right !important;
+    padding-right: 30px;
+    font-size: 18px;
+}
+
+li.tab-icon > i.fa {
+    padding-right: 20px;
     cursor: pointer;
 }
 
-.tab-search {
-    padding-left: 10px;
-}
-
+/** 列表 */
 .work-list{
-    overflow-y: auto;
+    /* overflow-y: auto; */
     height: 400px;
 }
 
-md-grid-list {
+.agent {
     background-color: #fff;
     height: 100px;
     padding: 5px 10px;
-    width: 100%;
+}
+
+.agent:not(:first-child) {
     margin-top: 10px;
+}
+
+.agent > div {
+    float: left;
+}
+
+.software {
+    display: flex;
+    height: 100%;
+}
+
+.software > img {
+    height: 80px;
+    align-self: center;
+}
+
+.software-info {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: calc(100% - 100px);
+}
+
+.detail {
+    margin-bottom: 25px;
+}
+
+.detail ul {
+    float: left;
+    width: 50%;
+}
+
+.detail ul > li {
+    margin-right: 20px;
+}
+
+.detail ul > li i {
+    margin-right: 5px;
+}
+
+.detail ul > li.idle {
+    background-color: #7FBC39;    
+}
+
+.detail ul > li.building {
+    background-color: #FF9A2A;
+}
+
+.detail ul > li.status > span {
+    color: #fff;
+    padding: 0px 5px;
+}
+
+.detail ul > li.name > span {
+    color: #00B4CF;
+}
+
+.detail > ul > li > i.fa {
+    margin-right: 10px;
+}
+
+.add-resource {
+    margin-right: 10px;
+    position: relative;
+}
+
+.add-resource > i {
+    font-size: 20px;
+    color: #00B4CF;
+}
+
+.resources > ul > li:not(:first-child) {
+    margin-right: 10px;
+    background-color: #e1e4e6;
+    padding: 2px 5px;
+}
+
+.resources > ul > li:not(:first-child) > i,
+.add-resource > i {
+    cursor: pointer;
+}
+
+.resources > ul > li:not(:first-child) > span {
+    padding-right: 10px;
 }

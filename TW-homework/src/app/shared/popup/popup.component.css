@@ -1,0 +1,42 @@
+.popup {
+    position: absolute;
+    width: 570px;
+    height: auto;
+    border: 1px solid #00B4CF;
+    background-color: rgb(119, 113, 113);
+    top: 40px;
+    left: -20px;
+    z-index: 2;
+}
+
+/** 三角形 */
+.triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 8px 20px;
+    border-color: transparent transparent #00B4CF;
+    position: relative;
+    top: -20px;
+    left: 20px;
+}
+.triangle > span {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 8px 20px;
+    border-color: transparent transparent #fff;
+    position: absolute;
+    top: 1px;
+    left: -8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+form > div {
+    padding-bottom: 10px;
+}
