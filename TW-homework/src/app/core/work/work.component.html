@@ -2,27 +2,29 @@
   <div class="work-header">
     <div class="header-item" style="background-color: #FF9A2A;">
       <span class="item-title">Building</span>
-      <img src="assets/image/setting.svg" alt="" class="item-icon">
+      <i class="fa fa-cog item-icon"></i>
+      <!-- <img src="assets/image/setting.svg" alt="" class="item-icon"> -->
       <span class="item-num">3</span>
     </div>
     <div class="header-item" style="background-color: #7FBC39;margin: auto 20px;">
       <span class="item-title">Idle</span>
-      <img src="assets/image/coffee.svg" alt="" class="item-icon">
+      <i class="fa fa-coffee item-icon"></i>
+      <!-- <img src="assets/image/coffee.svg" alt="" class="item-icon"> -->
       <span class="item-num">5</span>
     </div>
     <div class="header-item fill-remaining-space" style="background-color: #FFF;">
       <ul class="count-num">
         <li>
-          <span>ALL</span>
-          <span>8</span>
+          <span class="num-title">ALL</span>
+          <span class="number">8</span>
         </li>
         <li>
-          <span>PGYSICAL</span>
-          <span>4</span>
+          <span class="num-title">PGYSICAL</span>
+          <span class="number">4</span>
         </li>
         <li>
-          <span>VIRTUAL</span>
-          <span>4</span>
+          <span class="num-title">VIRTUAL</span>
+          <span class="number">4</span>
         </li>
       </ul>
     </div>
@@ -41,10 +43,10 @@
       </li>
       <li class="tab-search">
         <i class="fa fa-search"></i>
-       <input type="text" >
+       <input type="text" name="search">
       </li>
       <li class="tab-icon">
-        <i class="fa fa-th" [class.active]="showList=='th'" (click)="showList = 'th'"></i>
+        <i class="fa fa-th" [class.active]="showList=='th'" (click)="showList = 'th'" style="margin-right: 10px;"></i>
         <i class="fa fa-th-list" [class.active]="showList=='list'" (click)="showList = 'list'"></i>
       </li>
     </ul>
@@ -81,12 +83,12 @@
           <div class="resources">
             <ul>
               <li class="add-resource">
-                <i class="fa fa-plus-square"></i>
-                <app-popup></app-popup>
+                <i class="fa fa-plus-square" (click)="popup.show($event)"></i>
+                <app-popup #popup [agentInfo]="agent" (onAdd)="agent.resources=updateResources($event)"></app-popup>
               </li>
-              <li *ngFor="let item of agent.resources">                
+              <li *ngFor="let item of agent.resources;let i = index">                
                 <span>{{ item }}</span>
-                <i class="fa fa-trash-o"></i>
+                <i class="fa fa-trash-o" (click)="agent.resources.splice(i,1)"></i>
               </li>
             </ul>
           </div>

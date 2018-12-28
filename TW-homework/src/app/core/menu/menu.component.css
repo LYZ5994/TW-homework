@@ -1,7 +1,9 @@
 .menu {
     float: right;
     height: 100%;
-    width: 100%;
+    width: 20%;
+    position: fixed;
+    left: 5%;
     background-color: #2d4054;
 }
 
@@ -24,11 +26,13 @@ ul {
     align-items: center;
     height: 45px;
     padding-left: 30px;
+    cursor: pointer;
 }
 
-.menu-list li:hover {
+.menu-list li:hover,
+li.active {
     background-color: #435466;
-    cursor: pointer;
+    color: #00B4Cf;
 }
 
 .menu-list li > span,
@@ -37,6 +41,41 @@ ul {
 } 
 
 .menu-list li:hover > span,
-.menu-list li:hover > i {
+.menu-list li:hover > i,
+li.active > span,
+li.active > i {
     color: #00B4Cf;
 } 
+
+.history {
+    padding-left: 15px;
+}
+
+.history > .title {
+    font-size: 24px;
+    color: #ccc;
+}
+
+.history > ul {
+    padding-left: 10px;
+}
+
+.history > ul > li {
+    list-style: disc;
+    color: #999;
+    width: 100%;
+}
+
+.history > ul > li > span {
+    font-size: 12px;
+    color: #999;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+}
+
+
+.history > ul > li:hover > span {
+    color: #00B4Cf;
+}

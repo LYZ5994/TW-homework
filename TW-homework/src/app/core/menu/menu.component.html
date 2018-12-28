@@ -1,22 +1,30 @@
 <div class="menu">
   <div class="menu-list">
     <ul>
-        <li>
+        <li [class.active]="menu=='dashboard'" (click)="menu=='dashboard'">
             <i class="icon fa fa-ravelry"></i>
             <span>DASHBOARD</span>
         </li>
-        <li>
+        <li [class.active]="menu=='agent'" (click)="menu=='agent'">
             <i class="icon fa fa-ravelry"></i>
             <span>AGENT</span></li>
-        <li>
+        <li [class.active]="menu=='cruise'" (click)="menu=='cruise'">
             <i class="icon fa fa-ravelry"></i>
             <span>MY CRUISE</span>
         </li>
-        <li>
+        <li [class.active]="menu=='help'" (click)="menu=='help'">
             <i class="icon fa fa-ravelry"></i>
             <span>HELP</span>
         </li>
     </ul>
   </div>
-  <div class="history"></div>
+
+  <div class="history">
+      <span class="title">History</span>
+    <ul>
+        <li *ngFor="let agent of listData">
+            <span>{{ agent.name }}/Acceptance_test</span>
+        </li>
+    </ul>
+  </div>
 </div>

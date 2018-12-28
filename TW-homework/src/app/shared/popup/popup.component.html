@@ -1,16 +1,16 @@
-<div class="popup">
+<div class="popup" *ngIf="display">
   <div class="triangle">
       <span></span>
   </div>
-  <i class="fa fa-close" style="position:absolute;top: 0;right: 0;font-size: 16px;"></i>
+  <i class="fa fa-close" (click)="hide()" 
+    style="position:absolute;top: 0;right: 0;font-size: 16px;color: #00B4CF;cursor: pointer;"></i>
   <form>
     <div><span>Separate mutiple resources name with comas</span></div>
-    <!-- <div><input type="text" name="resourceName" [(ngModel)]="resourceName"></div>    -->
-    <div><input type="text" name="resourceName"></div>   
+    <div><input type="text" name="resourceName" [(ngModel)]="resourceName"></div> 
     
     <div class="option-btn">
-      <button class="add">Add Resources</button>
-      <button class="cancel">Cancel</button>
+      <button class="add" (click)="addResouse()">Add Resources</button>
+      <button class="cancel" (click)="hide()">Cancel</button>
     </div>
   </form>
 </div>

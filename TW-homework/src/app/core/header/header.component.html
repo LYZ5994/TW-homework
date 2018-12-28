@@ -1,3 +1,30 @@
-<div class="content-center header">
-  <img src="assets/image/logo.svg" alt="" class="logo">
+<div class="header content-center">
+  <div class="fill-remaining-space"></div>
+
+  <div class="header-logo">
+    <div class="logo">
+      <img src="assets/image/logo.svg" alt="cruise">
+    </div>
+  
+    <div class="portrait">
+      <img src="assets/image/portrait.jpg" alt="portrait">
+      <i class="fa fa-angle-down" (click)="isShowDialog = !isShowDialog"></i>
+      <div *ngIf="isShowDialog" class="login-dialog">
+        <ul>
+          <li>
+            <i class="fa fa-address-card-o"></i>
+            <span>Profil</span>
+          </li>
+          <li>
+            <i class="fa fa-sign-out"></i>
+            <span>Sign Out</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-remaining-space"></div>
+  
 </div>
+

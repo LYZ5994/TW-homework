@@ -1,7 +1,61 @@
-.logo {
+.header {
+    padding: 5px 0;
+    height: 50px;
+    top: 0;
+    background-color: #fff;
+}
+
+.header-logo {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo > img {
     height: 40px;
     width: 100px;
 }
-.header {
-    padding: 5px 0;
+
+.portrait {
+    position: absolute;
+    right: 5%;
+}
+
+.portrait > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.portrait > i {
+    cursor: pointer;
+}
+
+.login-dialog {
+    border: 1px solid #ccc;
+    position: absolute;
+    width: 120px;
+    background: #fff;
+    top: 45px;
+    left: -10px;
+}
+
+.login-dialog > ul {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.login-dialog > ul > li {
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.login-dialog > ul > li:hover {
+    background-color: #EFEFEF;
+}
+
+.login-dialog > ul > li > i {
+    margin-right: 5px;
 }

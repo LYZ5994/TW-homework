@@ -20,22 +20,27 @@ main {
     background-color: #e1e4e6;
     display: flex !important;
     flex-direction: row;
+    margin: 50px 0 30px;
+    overflow: auto;
 }
 
-.content-center{
+.content-center {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
-.header, .footer, {
+.header, .footer {
     border: 1px solid #e8e8e8;
+    position: fixed;
+    height: 50px;
 }
 
 .fill-remaining-space {
     flex: 1 1 auto;
 }
 
-ul li{
+ul li {
     list-style: none;
 }
 
@@ -52,9 +57,6 @@ ul li{
 }
 .fa-attention {
     background-image: url('./assets/image/attention.svg');
-}
-.fa-folder {
-    background-image: url('./assets/image/folder.svg');
 }
 
 

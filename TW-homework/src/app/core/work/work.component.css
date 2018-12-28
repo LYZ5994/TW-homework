@@ -1,7 +1,8 @@
 .work-area {
-    padding: 20px 20px;
+    padding: 15px 0 15px 20px;
     display: flex;
     flex-direction: column;
+    width: 95%;
 }
 
 .work-header {
@@ -10,7 +11,7 @@
 }
 
 .header-item{
-    height: 144px;
+    height: 124px;
     display: flex;
 }
 
@@ -19,14 +20,16 @@
     font-weight: bold;
     color: #fff;
     align-self: flex-start;
-    padding: 10px;
+    padding: 5px 5px 5px 10px;
 }
 
 .item-icon{
     align-self: center;
-    height: 144px;
-    width: 144px;
+    font-size: 144px;
     opacity: 0.2;
+    display: block;
+    width: 140px;
+    height: 144px;
 }
 
 .item-num{
@@ -39,12 +42,20 @@
 .count-num {
     width: 100%;
 }
+
 .count-num > li {
     width: 33%;
     display: flex;
-    flex-direction: row;
-    align-content: center;
+    flex-direction: column;
     justify-content: center;
+}
+
+.count-num > li > span {
+    padding: 15px;
+}
+
+.count-num > li > span.number {
+    font-size: 30px;
 }
 
 /** 列表筛选 bar */
@@ -73,6 +84,7 @@ li.tab-title {
     padding-left: 30px;
     padding-right: 30px;
     cursor: pointer;
+    border-bottom: 3px solid #fff;
 }
 
 li.tab-title:hover,
@@ -83,8 +95,7 @@ li.active {
 
 li.tab-title:hover span,
 li.active > span,
-li > i.active
-{
+li > i.active {
     color: #00B4CF;
 }
 
@@ -95,7 +106,6 @@ li.tab-icon {
 
 .tab-search {
     padding: 0 10px;
-    cursor: pointer;
     position: relative;
 } 
 
@@ -117,11 +127,6 @@ li.tab-icon {
     float: right !important;
     padding-right: 30px;
     font-size: 18px;
-}
-
-li.tab-icon > i.fa {
-    padding-right: 20px;
-    cursor: pointer;
 }
 
 /** 列表 */
@@ -205,7 +210,7 @@ li.tab-icon > i.fa {
 }
 
 .add-resource > i {
-    font-size: 20px;
+    font-size: 24px;
     color: #00B4CF;
 }
 
@@ -216,7 +221,9 @@ li.tab-icon > i.fa {
 }
 
 .resources > ul > li:not(:first-child) > i,
-.add-resource > i {
+.add-resource > i,
+li.tab-icon > i.fa,
+.tab-search > i {
     cursor: pointer;
 }
 

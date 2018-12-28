@@ -5,10 +5,12 @@ import { DataService } from '../../service/dataservice';
   selector: 'app-work',
   templateUrl: './work.component.html',
   styleUrls: ['./work.component.css'],
-  providers: [DataService]
+  providers: [ DataService ]
 })
 export class WorkComponent implements OnInit {
 
+  tabActive: string = 'all';
+  showList: string = 'list';
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -23,8 +25,10 @@ export class WorkComponent implements OnInit {
 
     })
   }
-  // 标签切换
-  tabActive: string = 'all';
-  showList: string = 'list';
+
+  // 更新资源
+  updateResources(event) { 
+    return event.resources;
+  }
 
 }
