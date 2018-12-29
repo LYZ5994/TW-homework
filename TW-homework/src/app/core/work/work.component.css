@@ -145,11 +145,15 @@ ul {
     padding-left: 0;
 }
 ul > li {
-    height: 100%;
+    /* height: 100%; */
     list-style: none;
     float: left;
     display: flex;
     align-items: center;
+}
+
+.tabs-bar > ul > li {
+    height: 100%;
 }
 
 li.tab-title {
@@ -211,8 +215,10 @@ li.tab-icon {
 
 .agent {
     background-color: #fff;
-    height: 100px;
+    min-height: 100px;
     padding: 5px 10px;
+    height: auto;
+    overflow: auto;
 }
 
 .agent:not(:first-child) {
@@ -290,6 +296,7 @@ li.tab-icon {
 
 .resources > ul > li:not(:first-child) {
     margin-right: 10px;
+    margin-bottom: 3px;
     background-color: #e1e4e6;
     padding: 2px 5px;
 }
