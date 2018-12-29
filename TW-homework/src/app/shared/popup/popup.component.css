@@ -34,9 +34,23 @@
 form {
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    padding: 0px 15px 5px;
 }
 
 form > div {
     padding-bottom: 10px;
+}
+
+form input {
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.option-btn > button:not(:first-child) {
+    margin-left: 10px;
 }

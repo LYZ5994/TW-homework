@@ -16,12 +16,19 @@ export class MenuComponent implements OnInit {
     this.reqAgentsList();
   }
   // 获取列表数据
-  listData: any;
+  listData: any[] = [];
   reqAgentsList(){
+    let arr = [];
     this.dataService.reqDataByGet('http://localhost:3000/agents').then(res => {
-
-      this.listData = res;
-
+      for (const key in res) {
+        if (res.hasOwnProperty(key)) {
+          const element = res[key];
+          arr.push(element)
+        }
+      }
+      this.listData = arr.map(item => {
+        return item.name.split('.')[0];
+      })
     })
   }
 

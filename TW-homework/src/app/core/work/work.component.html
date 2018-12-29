@@ -1,15 +1,13 @@
-<div class="work-area">
+<div #workArea class="work-area">
   <div class="work-header">
     <div class="header-item" style="background-color: #FF9A2A;">
       <span class="item-title">Building</span>
       <i class="fa fa-cog item-icon"></i>
-      <!-- <img src="assets/image/setting.svg" alt="" class="item-icon"> -->
       <span class="item-num">3</span>
     </div>
     <div class="header-item" style="background-color: #7FBC39;margin: auto 20px;">
       <span class="item-title">Idle</span>
       <i class="fa fa-coffee item-icon"></i>
-      <!-- <img src="assets/image/coffee.svg" alt="" class="item-icon"> -->
       <span class="item-num">5</span>
     </div>
     <div class="header-item fill-remaining-space" style="background-color: #FFF;">
@@ -59,6 +57,7 @@
           <img src="assets/image/os/{{agent.os}}.png" alt="">
         </div>
         <div class="software-info">
+
           <div class="detail">
             <ul>
               <li class="name">
@@ -80,18 +79,28 @@
               </li>
             </ul>
           </div>
+
           <div class="resources">
             <ul>
-              <li class="add-resource">
-                <i class="fa fa-plus-square" (click)="popup.show($event)"></i>
+              <li class="add-resource" (click)="popup.show($event)">
+                <i class="fa fa-plus-square"></i>
                 <app-popup #popup [agentInfo]="agent" (onAdd)="agent.resources=updateResources($event)"></app-popup>
               </li>
               <li *ngFor="let item of agent.resources;let i = index">                
                 <span>{{ item }}</span>
-                <i class="fa fa-trash-o" (click)="agent.resources.splice(i,1)"></i>
+                <!-- <i class="fa fa-trash-o" (click)="agent.resources.splice(i,1)"></i> -->
+                <i class="fa fa-trash-o" (click)="agent.resources = deleteResource(agent,i)"></i>
               </li>
             </ul>
           </div>
+
+          <div class="deny" *ngIf="agent.status == 'building'">
+            <button class="blue-btn">
+              <i class="fa fa-ban"></i>
+              <label for="">Deny</label>
+            </button>
+          </div>
+
         </div>        
       </div>
     </ng-container>

@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 * {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: #2d4054;
 }
@@ -21,7 +22,9 @@ main {
     display: flex !important;
     flex-direction: row;
     margin: 50px 0 30px;
-    overflow: auto;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
 }
 
 .content-center {
@@ -57,6 +60,25 @@ ul li {
 }
 .fa-attention {
     background-image: url('./assets/image/attention.svg');
+}
+
+/** 按钮公共样式 */
+.blue-btn {
+    background-color: #00B4CF;
+    border: 1px solid #00B4CF;
+    color: #fff;
+}
+
+.gray-btn {
+    background-color: #2D4054;
+    border: 1px solid #2D4054;
+    color: #fff;
+}
+
+button {
+    color: #fff;
+    min-width: 100px;
+    cursor: pointer;
 }
 
 

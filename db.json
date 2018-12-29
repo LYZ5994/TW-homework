@@ -66,7 +66,10 @@
       "type": "physical",
       "ip": "192.168.1.110",
       "location": "/var/lib/cruise-agent",
-      "resources": [],
+      "resources": [
+        "Chrome",
+        "Safari"
+      ],
       "id": 5
     },
     {

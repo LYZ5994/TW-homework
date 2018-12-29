@@ -2,7 +2,53 @@
     padding: 15px 0 15px 20px;
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 70%;
+    /* width: 90%; */
+    position: absolute;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+/*o内核*/
+.work-area .-o-scrollbar{
+    -moz-appearance: none !important;   
+    background: rgba(0,255,0,0) !important;  
+}
+.work-area::-o-scrollbar-button    {
+    background-color:rgba(0,0,0,0);
+}
+.work-area::-o-scrollbar-track     {
+    background-color:rgba(0,0,0,0);
+}
+.work-area::-o-scrollbar-track-piece {
+    background-color:rgba(0,0,0,0);
+}
+.work-area::-o-scrollbar-thumb{
+    background-color:rgba(0,0,0,0);
+}
+.work-area::-o-scrollbar-corner {
+    background-color:rgba(0,0,0,0);
+}
+.work-area::-o-scrollbar-resizer  {
+    background-color:rgba(0,0,0,0);
+}
+
+.work-area::-webkit-scrollbar {
+    display: none;
+}
+
+.work-area {
+    -ms-scroll-chaining: chained;
+    -ms-overflow-style: none;
+    -ms-content-zooming: zoom;
+    -ms-scroll-rails: none;
+    -ms-content-zoom-limit-min: 100%;
+    -ms-content-zoom-limit-max: 500%;
+    -ms-scroll-snap-type: proximity;
+    -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+    -ms-overflow-style: none;
+    overflow: auto;
 }
 
 .work-header {
@@ -11,7 +57,7 @@
 }
 
 .header-item{
-    height: 124px;
+    height: 140px;
     display: flex;
 }
 
@@ -32,11 +78,38 @@
     height: 144px;
 }
 
+.item-icon.fa-cog {
+    width: 123.42px;
+    height: 144px;
+}
+
+/** 动画 - 图标转动 */
+.item-icon.fa-cog {
+    -webkit-animation:rotateIcon 2s linear infinite;
+    -moz-animation : rotateIcon 2s linear infinite;
+    animation:rotateIcon 2s linear infinite;
+}
+@-webkit-keyframes rotateIcon {
+    0%{-webkit-transform:rotate(0deg);}
+    50%{-webkit-transform:rotate(180deg);}
+    100%{-webkit-transform:rotate(360deg);}
+}
+@-moz-keyframes rotateIcon {
+    0%{-moz-transform:rotate(0deg);}
+    50%{-moz-transform:rotate(180deg);}
+    100%{-moz-transform:rotate(360deg);}
+}
+@keyframes rotateIcon {
+    0%{-webkit-transform:rotate(0deg);}
+    50%{-webkit-transform:rotate(180deg);}
+    100%{-webkit-transform:rotate(360deg);}
+}
+
 .item-num{
     font-size: 48px;
     color: #fff;
     align-self: flex-end;
-    padding: 10px;    
+    padding: 5px;    
 }
 
 .count-num {
@@ -111,27 +184,28 @@ li.tab-icon {
 
 .tab-search > i {
     position: absolute;
-    left: 15px;
-    
+    left: 20px;
+    font-size: 20px;
+    top: 15px;
+    color: #ccc;
 }
 
 .tab-search > input {
-    height: 25px;
+    height: 30px;
     border: 1px solid #e8e8e8;
     background-color: #E1E4E6;
-    padding-left: 25px;
+    padding-left: 35px;
     outline: none;
 }
 
 li.tab-icon {
     float: right !important;
     padding-right: 30px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 /** 列表 */
 .work-list{
-    /* overflow-y: auto; */
     height: 400px;
 }
 
@@ -163,7 +237,7 @@ li.tab-icon {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    width: calc(100% - 100px);
+    width: calc(100% - 80px);
 }
 
 .detail {
@@ -229,4 +303,21 @@ li.tab-icon > i.fa,
 
 .resources > ul > li:not(:first-child) > span {
     padding-right: 10px;
+}
+
+.deny {
+    position: relative;
+}
+
+.deny > button {
+    position: absolute;
+    top: -25px;
+    right: 0;
+    height: 30px;
+}
+
+.blue-btn > i,
+.blue-btn > label {
+    color: #fff;
+    margin: 0;
 }

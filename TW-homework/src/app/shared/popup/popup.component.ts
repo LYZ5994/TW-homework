@@ -10,7 +10,7 @@ export class PopupComponent implements OnInit {
 
   @Input() agentInfo;
   display: boolean = false;
-  targetClickEvent: boolean = false;
+  targetClickEvent: boolean = true;
   documentClickListener: any;
   resourceName: string = "";
   constructor(private renderer: Renderer,private dataService: DataService) { }
@@ -29,8 +29,9 @@ export class PopupComponent implements OnInit {
       const id = params.id;
       this.dataService.reqDataByPut(`http://localhost:3000/agents/${id}`,params).then(res => {
 
-        console.log("success！");
+        console.log("Add Success！");
         this.onAdd.emit(res);
+        this.hide();
 
       })
     }
@@ -39,24 +40,30 @@ export class PopupComponent implements OnInit {
   @Output() onAdd : EventEmitter<any> = new EventEmitter();
 
   show(event) {
-    this.display = true;
     if(event.type == 'click') {
       this.targetClickEvent = true;
     }
-    // event.stopPropagation();
+    this.display = true;
   }
 
-  hide() {
-    this.display = false;
+
+  cancel() {
     this.targetClickEvent = false;
-    this.unbindDocumentClickListener();
+  }
+  hide() {
+    this.resourceName = "";
+    this.display = false;
   }
 
-  //监听页面点击事件
+  // 监听页面点击事件
   bindDocumentClickListener(){
     if (!this.documentClickListener) {
       this.documentClickListener = this.renderer.listen('document', 'click', (event) => {
+        // console.log(event);
         if (!this.targetClickEvent) {
+          this.hide();
+        } 
+        if(event.target.className.indexOf("cancel-popup") > -1) {
           this.hide();
         }
         this.targetClickEvent = false;
@@ -64,7 +71,7 @@ export class PopupComponent implements OnInit {
     }
   }
 
-  //解除页面监听事件
+  // 解除页面监听事件
   unbindDocumentClickListener() {
     if(this.documentClickListener) {
       this.documentClickListener();
