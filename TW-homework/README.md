@@ -37,6 +37,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - npm install
 - cd TW-homework
-- json-serve
+- json-serve —watch db.json
 - ng serve —o
 
