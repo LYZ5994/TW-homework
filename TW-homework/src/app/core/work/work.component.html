@@ -80,15 +80,14 @@
             </ul>
           </div>
 
-          <div class="resources">
+          <div class="resources" [class.resources-width]="agent.status=='building'&&agent.resources.length>5">
+            <div class="add-resource" (click)="popup.show($event)">
+              <i class="fa fa-plus-square"></i>
+              <app-popup #popup [agentInfo]="agent" (onAdd)="agent.resources=updateResources($event)"></app-popup>
+            </div>
             <ul>
-              <li class="add-resource" (click)="popup.show($event)">
-                <i class="fa fa-plus-square"></i>
-                <app-popup #popup [agentInfo]="agent" (onAdd)="agent.resources=updateResources($event)"></app-popup>
-              </li>
               <li *ngFor="let item of agent.resources;let i = index">                
                 <span>{{ item }}</span>
-                <!-- <i class="fa fa-trash-o" (click)="agent.resources.splice(i,1)"></i> -->
                 <i class="fa fa-trash-o" (click)="agent.resources = deleteResource(agent,i)"></i>
               </li>
             </ul>

@@ -11,9 +11,7 @@
         "Firefox",
         "Safari",
         "Ubuntu",
-        "Chrome",
         "Operate",
-        "Microsoft Edge",
         "UCBrowser",
         "Mathon"
       ],
@@ -29,8 +27,11 @@
       "resources": [
         "Firefox",
         "Safari",
-        "Ubuntu",
-        "Chrome"
+        "Chrome",
+        "Operate",
+        "Microsoft Edge",
+        "UC Browser",
+        "Mathon"
       ],
       "id": 2
     },
