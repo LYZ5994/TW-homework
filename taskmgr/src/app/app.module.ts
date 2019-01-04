@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MdSidenavModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
@@ -16,6 +17,8 @@ import { CoreModule } from './core/core.module';
     MdSidenavModule,
     CoreModule,
     AppRoutingModule,
+    FormsModule, 
+    ReactiveFormsModule,
     // LoginModule,
     // ProjectModule
   ],

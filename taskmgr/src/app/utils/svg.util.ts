@@ -4,10 +4,10 @@ import * as _ from 'lodash'
 
 // 导入 SVG 资源
 export const loadSvgResource = (ir: MdIconRegistry, ds: DomSanitizer) =>{
-    const imgDir = 'assets/img';
     const avatarDir = `assets/avatar`;
+    const iconDir = `assets/icons`;
+    const imgDir = 'assets/img';
     const sidebarDir = `${imgDir}/sidebar`;
-    const iconDir = `${imgDir}/icons`;
     const dayDir = `${imgDir}/days`;
     ir.addSvgIconSetInNamespace('avatars', ds.bypassSecurityTrustResourceUrl(`${avatarDir}/avatars.svg`))
       .addSvgIcon('unassigned', ds.bypassSecurityTrustResourceUrl(`${avatarDir}/unassigned.svg`))

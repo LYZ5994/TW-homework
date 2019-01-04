@@ -1,0 +1,30 @@
+.completion-status {
+    order: -1;
+}
+
+md-icon.avatar {
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    order: 3;
+    margin: 10px;
+}
+
+.completed {
+    opacity: 0.9;
+    color: #d9d9d9;
+    text-decoration: line-through;
+}
+
+.priority-normal {
+    border-left: 3px solid #A6A6A6;
+}
+
+.priority-important {
+    border-left: 3px solid #FFAF38;
+}
+
+.priority-emergency {
+    border-left: 3px solid red;
+}

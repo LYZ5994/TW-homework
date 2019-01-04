@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MdDialog } from '@angular/material';
 
 @Component({
   selector: 'app-project-item',
@@ -8,9 +9,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProjectItemComponent implements OnInit {
 
   @Input() item;
-  constructor() { }
+  @Output() onInvite = new EventEmitter<void>();
+  constructor(private dialog: MdDialog) { }
 
   ngOnInit() {
+  }
+
+  onInviteClick() {
+    this.onInvite.emit();
   }
 
 }
