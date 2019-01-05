@@ -8,6 +8,7 @@ import { OverlayContainer } from '@angular/material';
 })
 export class AppComponent {
 
+  squareState: string; 
   darkTheme = false;
 
   constructor(private oc: OverlayContainer) {}
@@ -17,4 +18,5 @@ export class AppComponent {
     // 将黑夜模式应用到全局
     this.oc.themeClass = dark ? "myapp-dark-theme" : null;  
   }
+
 }

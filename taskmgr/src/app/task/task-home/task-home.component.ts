@@ -1,11 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { MdDialog } from '@angular/material';
+import { NewTaskComponent } from '../new-task/new-task.component';
+import { CopyTaskComponent } from '../copy-task/copy-task.component';
+import { ComfirmDialogComponent } from '../../shared/comfirm-dialog/comfirm-dialog.component';
+import { NewTaskListComponent } from '../new-task-list/new-task-list.component';
+import { slideToRight } from "../../animate/router.anim";
 
 @Component({
   selector: 'app-task-home',
   templateUrl: './task-home.component.html',
-  styleUrls: ['./task-home.component.scss']
+  styleUrls: ['./task-home.component.scss'],
+  animations: [slideToRight]
 })
 export class TaskHomeComponent implements OnInit {
+
+  @HostBinding('@routerAnim') state;
 
   lists = [
     {
@@ -71,9 +80,36 @@ export class TaskHomeComponent implements OnInit {
       ]
     }
   ]
-  constructor() { }
+  constructor(private dialog: MdDialog) { }
 
   ngOnInit() {
+  }
+
+  launchNewTaskClick(){
+    this.dialog.open(NewTaskComponent,{data: {title: '新建任务'}});
+  }
+
+  launchCopyTaskClick() {
+    const dialogRef = this.dialog.open(CopyTaskComponent,{data: {lists: this.lists}})
+  }
+
+  launchUpdateTaskClick(task) {
+    const dialogRef = this.dialog.open(NewTaskComponent,{data: {title: '修改任务',task: task}})
+  }
+
+  launchDelTaskClick() {
+    const dialogRef = this.dialog.open(ComfirmDialogComponent,{data: {title: '删除任务',content: '是否确认删除任务？'}})
+    dialogRef.afterClosed().subscribe(result => console.log(result));
+  }
+
+  launchEditListNameClick() {
+    const dialogRef = this.dialog.open(NewTaskListComponent,{data: {title: '修改列表名称'}})
+    dialogRef.afterClosed().subscribe(result => console.log(result));
+  }
+
+  openNewTaskDialog() {
+    const dialogRef = this.dialog.open(NewTaskListComponent,{data: {title: '新建列表'}})
+    dialogRef.afterClosed().subscribe(result => console.log(result));
   }
 
 }
