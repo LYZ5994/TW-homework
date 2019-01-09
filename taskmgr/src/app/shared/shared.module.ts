@@ -22,12 +22,14 @@ import {
   MdSidenavModule
 } from '@angular/material';
 import { ComfirmDialogComponent } from './comfirm-dialog/comfirm-dialog.component';
+import { DirectiveModule } from '../directive/directive.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule, 
     ReactiveFormsModule,
+    DirectiveModule,
     MdToolbarModule,
     MdIconModule,
     MdButtonModule, 
@@ -51,6 +53,7 @@ import { ComfirmDialogComponent } from './comfirm-dialog/comfirm-dialog.componen
     CommonModule,
     FormsModule, 
     ReactiveFormsModule,
+    DirectiveModule,
     MdToolbarModule,
     MdIconModule,
     MdButtonModule, 

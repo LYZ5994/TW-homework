@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { MdDialog } from '@angular/material';
 import { NewProjectComponent } from "../new-project/new-project.component";
 import { InviteComponent } from '../invite/invite.component';
@@ -10,7 +10,8 @@ import { listAnimation } from "../../animate/list.anim";
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
   styleUrls: ['./project-list.component.scss'],
-  animations: [slideToRight, listAnimation]
+  animations: [slideToRight, listAnimation],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectListComponent implements OnInit {
 
@@ -36,7 +37,7 @@ export class ProjectListComponent implements OnInit {
       "coverImg": "assets/covers/1.jpg"
     },
   ];
-  constructor(private dialog: MdDialog) { }
+  constructor(private dialog: MdDialog, private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
@@ -56,6 +57,7 @@ export class ProjectListComponent implements OnInit {
         "desc": "描述5",
         "coverImg": "assets/covers/9.jpg"
       }]
+      this.cd.markForCheck();
     });  
   }
 
@@ -71,6 +73,7 @@ export class ProjectListComponent implements OnInit {
     const dialogRef = this.dialog.open(ComfirmDialogComponent, {data: {title: '删除项目', content: '是否确认删除项目？'}});
     dialogRef.afterClosed().subscribe(result => {
       this.projects = this.projects.filter(ele => ele.id !== project.id)
+      this.cd.markForCheck();
     });
   }
 
