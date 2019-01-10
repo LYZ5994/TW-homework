@@ -7,8 +7,7 @@
   }"
   (click)="onUpdateTaskClick()"
   [app-draggable]="true"
-  [draggedClass]="'drag-start'"
-  >
+  [draggedClass]="'drag-start'">
   <md-checkbox class="completion-status" [checked]="item.completed" (click)="onCheckboxClick($event)"></md-checkbox>
   <div md-line class="content" [ngClass]="{'completed': item.completed}">
     <span [md-tooltip]="item.desc">{{ item.desc }}</span> 

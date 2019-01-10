@@ -5,6 +5,7 @@ import { CopyTaskComponent } from '../copy-task/copy-task.component';
 import { ComfirmDialogComponent } from '../../shared/comfirm-dialog/comfirm-dialog.component';
 import { NewTaskListComponent } from '../new-task-list/new-task-list.component';
 import { slideToRight } from "../../animate/router.anim";
+import { SCROLL_DISPATCHER_PROVIDER_FACTORY } from '@angular/material/typings/core/overlay/scroll/scroll-dispatcher';
 
 @Component({
   selector: 'app-task-home',
@@ -111,6 +112,17 @@ export class TaskHomeComponent implements OnInit {
   openNewTaskDialog() {
     const dialogRef = this.dialog.open(NewTaskListComponent,{data: {title: '新建列表'}})
     dialogRef.afterClosed().subscribe(result => console.log(result));
+  }
+
+  handleMove(srcData, list){
+    switch(srcData.tag) {
+      case 'task-item':
+        console.log('task-item');
+        break;
+      case 'task-list':
+        console.log('task-list');
+        break;
+    }
   }
 
 }
